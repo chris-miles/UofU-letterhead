@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{letter}
+
+
+\usepackage{lipsum} % generate filler text
+
+
+\usepackage{fontspec} % need to compile using XeLaTeX or LuaLaTeX
+
+\setmainfont
+[Path=./Fonts/Tinos/,
+ItalicFont=Tinos-Italic,
+BoldFont=Tinos-Bold,
+BoldItalicFont=Tinos-BoldItalic]
+{Tinos-Regular.ttf}
+
+\newfontfamily\myriadb
+[Path=./Fonts/MyriadPro/]
+{MyriadPro-Bold.ttf}
+
+\newfontfamily\myriad
+[Path=./Fonts/MyriadPro/]
+{MyriadPro-Regular.ttf}
+
+\usepackage[margin=1in]{geometry}
+\date{\today}
+
+
+%% header stuff
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\definecolor{utahred}{RGB}{204,0.0,0}
+\definecolor{utahgrey}{RGB}{128,128,128}
+
+\fancypagestyle{firstpage}{%  letter package uses firstpage when no address is specified
+\fancyhf{}% Clear header/footer
+\renewcommand{\headrulewidth}{0pt}% Remove header rule
+\fancyhead[C]{
+  \begin{tabular}{ @{} p{\textwidth} @{} }
+    \includegraphics[width=1in]{Ulogo_1200px.png}\hfill {\myriadb Department of Mathematics} \\
+     \arrayrulecolor{utahred}\hline
+    \hfill {\myriad\textcolor{utahgrey}{\scriptsize 155 S 1400 E, Room 233 Salt Lake City, Utah 84112-0090 (801) 581-6851 FAX (801) 581-4148}}
+  \end{tabular}}
+\setlength{\headheight}{25.4pt}}
+
+
+\fancypagestyle{plain}{%
+\fancyhf{}% Clear header/footer
+\renewcommand{\headrulewidth}{0pt}} 
+
+
+\begin{document}
+\pagestyle{plain}
+\begin{letter}{ Fictional Department\\
+Some University\\
+    123 Street Road\\ Salt Lake City, UT 84112}
+
+\opening{To whom it may concern,}
+
+\lipsum[1-3]
+
+\closing{Sincerely,}
+\end{letter}
+\end{document}      
